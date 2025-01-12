@@ -1,21 +1,36 @@
 import './fs-components-styles.css';
+// import React from 'react';
+// import PropTypes from 'prop-types';
 
-function Card() {
-  // const name = dog.name;
-  // const breed = dog.breeds.primary;
-  // const age = dog.age;
-  // const gender = dog.gender;
-  // const description = dog.description;
-  // const distance = dog.distance;
-  // const city = dog.contact.address.city;
-  // const state = dog.contact.address.state;
-  // const photoUrl = dog.photos[0].medium;
+const Card = ({ props, key }) => {
+  // const id = props.id;
+  // const name = props.name;
+  // const breed = props.breeds.primary;
+  // const age = props.age;
+  // const gender = props.gender;
+  // const description = props.description;
+  // const distance = props.distance;
+  // const city = props.contact.address.city;
+  // const state = props.contact.address.state;
+  // const photoUrl = props.photos[0].medium;
+  // console.log(id);
+  // console.log(name);
+  // console.log(breed);
+  // console.log(age);
+  // console.log(gender);
+  // console.log(description);
+  // console.log(distance);
+  // console.log(city);
+  // console.log(state);
+  // console.log(photoUrl);
 
+  console.log(props);
+  console.log(key);
   // for testing
   const animalObj = {
     name: 'Kittie',
     breed: 'cavapoo',
-    url: 'https://cdn2.thecatapi.com/images/g7.jpg',
+    photoUrl: 'https://cdn2.thecatapi.com/images/g7.jpg',
     width: 534,
     height: 800,
   };
@@ -30,6 +45,6 @@ function Card() {
       <p>{animalObj.breed}</p>
     </div>
   );
-}
+};
 
 export default Card;

@@ -42,71 +42,36 @@ const getOAuthToken = async () => {
 // init();
 
 // GET request using petfinder API
-// const fetchPetfinder = async () => {
-//   try {
-//     // first we need to generate the token (which lasts 3600 seconds)
-//     const token = await getOAuthToken();
-//     const CATEGORY = 'animals';
-//     const ACTION =
-//     const response = await fetch(
-//       `https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}`,
-//       {
-//         method: 'GET',
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       }
-//     );
+const fetchPetFinder = async (location) => {
+  try {
+    // first we need to generate the token (which lasts 3600 seconds)
+    const token = await getOAuthToken();
+    const CATEGORY = 'animals';
+    const response = await fetch(
+      `https://api.petfinder.com/v2/${CATEGORY}?type=dog&location=${location}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! status: ${response.status}`);
-//     }
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error('Error:', error);
-//   }
-// };
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
 
-// const dogData = fetchPetfinder();
-// console.log(dogData);
+// const dogData = fetchPetFinder(10022);
 
-// fetch returns a Promise object - which is fullfilled with
-// a RESPONSE object representing the server's response
-//   fetch(urlToBeFetched, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(formData),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       // Log the response to see what we're getting
-//       console.log('Login response:', data);
-
-//       if (data.token) {
-//         localStorage.setItem('token', data.token);
-//         // Try using window.location as a fallback if navigate doesn't work
-//         try {
-//           navigate('/app', {
-//             state: { user: data.user },
-//           });
-//         } catch (err) {
-//           console.error('Navigation error:', err);
-//           window.location.href = '/app';
-//         }
-//       } else {
-//         throw new Error(data.error || 'Login failed');
-//       }
-//     })
-//     .catch((error) => {
-//       console.error('Login error:', error);
-//       setError(error.message);
-//     });
-// };
-// export default fetchPetfinder;
+export default fetchPetFinder;
 
 // console.log(dog);
 // console.log(name);
@@ -122,6 +87,7 @@ const getOAuthToken = async () => {
 // import { dogResults } from './results.js';
 
 // const dog = dogResults.animals[0];
+// const id = dog.id;
 // const name = dog.name;
 // const breed = dog.breeds.primary;
 // const age = dog.age;

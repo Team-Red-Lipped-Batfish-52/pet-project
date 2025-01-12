@@ -9,6 +9,9 @@
   display: flex;
 }
 
+/* .fs-search-bar {
+} */
+
 /* @media (max-width: 1175px) {
   .fs-search-results {
     grid-template-columns: repeat(3, 1fr);

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+// import { useState } from 'react';
 import Card from './Card';
 import './fs-components-styles.css';
-// import fetchPetfinder from './fetching';
 
-const SearchResults = ({ dogs }) => {
+const SearchResults = (props) => {
+  // const [dogs, updateDogs] = useState(props);
+
   // random list of 10 pictures
   // const listOfPics = 'https://api.thecatapi.com/v1/images/search?limit=10';
 
@@ -14,10 +15,11 @@ const SearchResults = ({ dogs }) => {
   // use display grid to display this grid of cards
   // stretch goal is to implement responsive functionality
 
+  // Key should be coming from our data
   return (
     <div className='fs-search-results'>
-      {dogs.map((item) => (
-        <Card dog={item} key={item.data} />
+      {props.map((dog) => (
+        <Card props={dog} key={dog.id} />
       ))}
     </div>
   );
