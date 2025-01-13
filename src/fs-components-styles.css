@@ -74,10 +74,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   gap: 20px;
-  max-width: 1200px; /* Match the max-width of your cards container */
-  margin: 0 auto; /* Center the container */
+  min-width: 1060px;
+  max-width: 1200px; /* Match the max-width of cards container */
+  margin: 0 auto; /*  Center the container*/
   width: 100%; /* Take full width up to max-width */
 }
 
@@ -117,4 +117,31 @@
 
 .fs-button:hover {
   background-color: #0056b3;
+}
+
+.fs-card {
+  position: relative; /* For absolute positioning of heart */
+  /* ... your existing card styles ... */
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.8); /* Initially semi-transparent white */
+  stroke: rgba(0, 0, 0, 0.5); /* Add outline for visibility */
+  stroke-width: 1px;
+  cursor: pointer;
+  transition: fill 0.3s ease; /* Smooth color transition */
+  z-index: 1; /* Keep heart above other content */
+}
+
+.heart:hover {
+  transform: scale(1.1); /* Slight grow effect on hover */
+}
+
+.heart.favorite {
+  fill: #ff4444; /* Red color when favorited */
 }

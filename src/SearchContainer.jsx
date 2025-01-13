@@ -1,49 +1,62 @@
-// import React, { useState, useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchNavigation from './SearchNavigation.jsx';
 import SearchResults from './SearchResults.jsx';
 import './fs-components-styles.css';
 import { dogResults } from './results.js';
 import fetchPetFinder from './fetching';
 
-// this component simply acts as the main container for the searching and displaying of our results
-// which is done in subcomponents
+// this component simply acts as the main container for the search navigation and displaying of our results
 export const SearchContainer = () => {
   // initially we're hardcoding an array of 20 elements (dogs)
-  // each element (dog) on the array is an object with properties related to the dog
+  // each element (dog) in the array is an object with dog properties
   const initialDogs = dogResults.animals;
-  // console.log(initialDogs);
 
-  const [location, setLocation] = useState('');
-  const [dogs, updateDogs] = useState(initialDogs);
-  // updateDogs();
-  // how do I make reference to the zipcode the user typed into this component?
-  // updateDogs(fetchPetFinder(location));
+  const [dogLocation, setDogLocation] = useState('');
+  const [dogs, updateDogs] = useState([]);
+  const [favorites, setFavorites] = useState(new Set()); // Use Set for O(1) lookups
 
-  // updateDogs(() => initialDogs);
+  const toggleFavorite = (dogId) => {
+    setFavorites((prevFavorites) => {
+      const newFavorites = new Set(prevFavorites);
+      if (newFavorites.has(dogId)) {
+        newFavorites.delete(dogId);
+      } else {
+        newFavorites.add(dogId);
+      }
+      return newFavorites;
+    });
+  };
 
-  // function handleSearch(location) {
-  //   setLocation(location);
-  //   updateDogs(fetchPetFinder(location));
-  // }
+  // hardcoding initial results
+  useEffect(() => {
+    if (!dogLocation) {
+      setDogLocation('06905');
+    }
+    if (dogs.length === 0) {
+      updateDogs(initialDogs);
+    }
+  }, []); // Empty dependency array means this runs once on mount
 
+  // handleSearch is passed down as props and it's activated once the user pushes the search button
   async function handleSearch(location) {
-    setLocation(location);
     try {
+      // sends a fetch request to the dog API based on the location parameter
       const newDogs = await fetchPetFinder(location); // Wait for Promise to resolve
       updateDogs(newDogs); // Update state with the resolved data
+      setDogLocation(location); // update location
     } catch (error) {
       console.error('Error fetching dogs:', error);
-      // Optionally handle the error state
     }
   }
 
-  // place fetching function here so that we may pass it as props to lower components
-
   return (
     <>
-      <SearchNavigation handleSearch={handleSearch} location={location} />
-      <SearchResults dogs={dogs} />
+      <SearchNavigation handleSearch={handleSearch} location={dogLocation} />
+      <SearchResults
+        dogs={dogs}
+        favorites={favorites}
+        onToggleFavorite={toggleFavorite}
+      />
     </>
   );
 };
