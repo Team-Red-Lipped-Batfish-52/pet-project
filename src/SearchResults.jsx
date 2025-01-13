@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import Card from './Card';
 import './fs-components-styles.css';
 import PropTypes from 'prop-types';
@@ -11,7 +10,6 @@ const SearchResults = ({ dogs, favorites, onToggleFavorite }) => {
   //   return <div>Loading...</div>;
   // }
 
-  // Key should be coming from our data
   return (
     <div className='fs-search-results'>
       {dogs.map((dog) => (
