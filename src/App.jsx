@@ -1,14 +1,9 @@
-// import { useState } from 'react';
+import React from 'react';
 import './App.css';
-// import Card from './Card';
-import SearchContainer from './SearchContainer';
+import LandingPage from './pages/LandingPage';
 
 function App() {
-  return (
-    <>
-      <SearchContainer />
-    </>
-  );
+  return <LandingPage />;
 }
 
 export default App;
