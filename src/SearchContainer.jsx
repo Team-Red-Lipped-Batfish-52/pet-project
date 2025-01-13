@@ -4,14 +4,16 @@ import SearchResults from './SearchResults.jsx';
 import './fs-components-styles.css';
 import { dogResults } from './results.js';
 import fetchPetFinder from './fetching';
+import UserProfile from './components/UserProfile.jsx';
 
 // this component simply acts as the main container for the search navigation and displaying of our results
-export const SearchContainer = () => {
+export const SearchContainer = (newLocation) => {
   // initially we're hardcoding an array of 20 elements (dogs)
   // each element (dog) in the array is an object with dog properties
   const initialDogs = dogResults.animals;
 
   const [dogLocation, setDogLocation] = useState('');
+  // const [dogLocation, setDogLocation] = useState(newLocation);
   const [dogs, updateDogs] = useState([]);
   const [favorites, setFavorites] = useState(new Set()); // Use Set for O(1) lookups
 
@@ -35,7 +37,7 @@ export const SearchContainer = () => {
     if (dogs.length === 0) {
       updateDogs(initialDogs);
     }
-  }, []); // Empty dependency array means this runs once on mount
+  }, [dogLocation, dogs.length, initialDogs]); // Empty dependency array means this runs once on mount
 
   // handleSearch is passed down as props and it's activated once the user pushes the search button
   async function handleSearch(location) {
@@ -51,6 +53,7 @@ export const SearchContainer = () => {
 
   return (
     <>
+      <UserProfile />
       <SearchNavigation handleSearch={handleSearch} location={dogLocation} />
       <SearchResults
         dogs={dogs}
