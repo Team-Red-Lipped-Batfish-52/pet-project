@@ -6,7 +6,9 @@ function SearchBar({ location, handleSearch }) {
 
   return (
     <div className='fs-search-bar'>
-      <p>See below results for dogs available within 50 miles of {location}</p>
+      <p className='text-lg text-gray-700'>
+        See below results for dogs available within 50 miles of {location}
+      </p>
       <div className='fs-search-wrapper'>
         <input
           type='search'

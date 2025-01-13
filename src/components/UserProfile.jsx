@@ -9,7 +9,7 @@ const UserProfile = () => {
   ]);
 
   return (
-    <div className='bg-pink-200 rounded-lg p-6 w-64 sticky top-4'>
+    <div className='bg-pink-200 rounded-lg p-6 sticky top-4'>
       <div className='mb-4'>
         <h2 className='text-xl font-bold mb-2'>Saved Pets</h2>
         <div className='text-md text gray-600'>Your Favorites</div>

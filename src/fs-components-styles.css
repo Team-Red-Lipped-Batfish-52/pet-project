@@ -6,38 +6,24 @@
 }
 
 .fs-search-nav {
-  display: inline-flex;
-  align-items: start;
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 20px;
 }
-
-/* .fs-search-bar {
-} */
-
-/* @media (max-width: 1175px) {
-  .fs-search-results {
-    grid-template-columns: repeat(3, 1fr);
-  }
-} */
-
-/* .fs-search-results {
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
-
 
 /* Container for all cards */
 .fs-search-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 20px 0;
 }
 
-/* Individual card styling */
 .fs-card {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -58,7 +44,6 @@
   margin-bottom: 10px;
 }
 
-/* Text content styling */
 .fs-card p {
   margin: 5px 0;
   color: #333;
@@ -74,33 +59,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   gap: 20px;
-  min-width: 1060px;
-  max-width: 1200px; /* Match the max-width of cards container */
-  margin: 0 auto; /*  Center the container*/
-  width: 100%; /* Take full width up to max-width */
 }
 
 .fs-search-bar p {
   margin: 0;
-  padding-left: 0; /* Ensure no extra padding on the left */
+  padding-left: 0;
   color: #666;
+}
+
+.fs-search-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.fs-search-bar input {
+  width: 300px;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 /* Create a wrapper for input and button */
 .fs-search-controls {
   display: flex;
-  gap: 10px; /* Space between input and button */
+  gap: 10px;
   align-items: center;
-}
-
-.fs-search-bar input {
-  height: 40px;
-  width: 300px; /* Fixed width instead of min-width */
-  padding: 0 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
 }
 
 .fs-button {
@@ -112,7 +100,7 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  white-space: nowrap; /* Prevent button text from wrapping */
+  transition: background-color 0.2s;
 }
 
 .fs-button:hover {
@@ -120,8 +108,7 @@
 }
 
 .fs-card {
-  position: relative; /* For absolute positioning of heart */
-  /* ... your existing card styles ... */
+  position: relative;
 }
 
 .heart {
@@ -131,11 +118,11 @@
   width: 24px;
   height: 24px;
   fill: rgba(255, 255, 255, 0.8); /* Initially semi-transparent white */
-  stroke: rgba(0, 0, 0, 0.5); /* Add outline for visibility */
+  stroke: rgba(0, 0, 0, 0.5);
   stroke-width: 1px;
   cursor: pointer;
-  transition: fill 0.3s ease; /* Smooth color transition */
-  z-index: 1; /* Keep heart above other content */
+  transition: fill 0.3s ease;
+  z-index: 1;
 }
 
 .heart:hover {

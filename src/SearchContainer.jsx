@@ -11,7 +11,6 @@ import { useLocation } from 'react-router';
 export const SearchContainer = () => {
   const location = useLocation();
   // location.state is sent from ZipSearch
-  // const newLocation = location.state?.newLocation;
   const newLocation = location.state.newLocation;
 
   // initially we're hardcoding an array of 20 elements (dogs)
@@ -67,7 +66,6 @@ export const SearchContainer = () => {
 
   return (
     <>
-      <UserProfile />
       <SearchNavigation handleSearch={handleSearch} location={dogLocation} />
       <SearchResults
         dogs={dogs}
