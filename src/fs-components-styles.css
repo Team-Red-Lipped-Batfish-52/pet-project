@@ -1,0 +1,147 @@
+/* Use class names that clearly indicate which component they belong to */
+.fs-header {
+  /* Header component styles */
+  background-color: #333;
+  padding: 1rem;
+}
+
+.fs-search-nav {
+  display: inline-flex;
+  align-items: start;
+}
+
+/* .fs-search-bar {
+} */
+
+/* @media (max-width: 1175px) {
+  .fs-search-results {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} */
+
+/* .fs-search-results {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+
+
+/* Container for all cards */
+.fs-search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual card styling */
+.fs-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+
+.fs-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image styling */
+.fs-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Text content styling */
+.fs-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.fs-card p:first-of-type {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.fs-search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  min-width: 1060px;
+  max-width: 1200px; /* Match the max-width of cards container */
+  margin: 0 auto; /*  Center the container*/
+  width: 100%; /* Take full width up to max-width */
+}
+
+.fs-search-bar p {
+  margin: 0;
+  padding-left: 0; /* Ensure no extra padding on the left */
+  color: #666;
+}
+
+/* Create a wrapper for input and button */
+.fs-search-controls {
+  display: flex;
+  gap: 10px; /* Space between input and button */
+  align-items: center;
+}
+
+.fs-search-bar input {
+  height: 40px;
+  width: 300px; /* Fixed width instead of min-width */
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.fs-button {
+  height: 40px;
+  padding: 0 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.fs-button:hover {
+  background-color: #0056b3;
+}
+
+.fs-card {
+  position: relative; /* For absolute positioning of heart */
+  /* ... your existing card styles ... */
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.8); /* Initially semi-transparent white */
+  stroke: rgba(0, 0, 0, 0.5); /* Add outline for visibility */
+  stroke-width: 1px;
+  cursor: pointer;
+  transition: fill 0.3s ease; /* Smooth color transition */
+  z-index: 1; /* Keep heart above other content */
+}
+
+.heart:hover {
+  transform: scale(1.1); /* Slight grow effect on hover */
+}
+
+.heart.favorite {
+  fill: #ff4444; /* Red color when favorited */
+}
