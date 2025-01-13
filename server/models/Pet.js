@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const petSchema = new mongoose.Schema({
   id: Number,
@@ -17,11 +17,12 @@ const petSchema = new mongoose.Schema({
     address: {
       city: String,
       state: String,
-      zipcode: String
+      zipcode: String,
     },
   },
-  // Add any other fields you want to store
-  savedAt: { type: Date, default: Date.now },
-});
 
-module.exports = mongoose.model('Pet', petSchema);
+  savedAt: { type: Date, default: Date.now },
+  
+});
+//specify which collection to save to - dogInfo1
+export default mongoose.model('Pet', petSchema, 'dogInfo1');
