@@ -1,0 +1,134 @@
+/* Use class names that clearly indicate which component they belong to */
+.fs-header {
+  /* Header component styles */
+  background-color: #333;
+  padding: 1rem;
+}
+
+.fs-search-nav {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+/* Container for all cards */
+.fs-search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.fs-card {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+
+.fs-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image styling */
+.fs-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.fs-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.fs-card p:first-of-type {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.fs-search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.fs-search-bar p {
+  margin: 0;
+  padding-left: 0;
+  color: #666;
+}
+
+.fs-search-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.fs-search-bar input {
+  width: 300px;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Create a wrapper for input and button */
+.fs-search-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.fs-button {
+  height: 40px;
+  padding: 0 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.fs-button:hover {
+  background-color: #0056b3;
+}
+
+.fs-card {
+  position: relative;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.8); /* Initially semi-transparent white */
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 1px;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+  z-index: 1;
+}
+
+.heart:hover {
+  transform: scale(1.1); /* Slight grow effect on hover */
+}
+
+.heart.favorite {
+  fill: #ff4444; /* Red color when favorited */
+}
